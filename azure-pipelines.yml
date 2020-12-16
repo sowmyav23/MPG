@@ -9,6 +9,6 @@ steps:
 - checkout: self
 - script: |
     echo Fetching Flyway Project
-    $ .\flyway -password=Snowflake@dmin  info
+    $ flyway -password=Snowflake@dmin  info
     dir
   displayName: 'Fetch Flyway Project'
