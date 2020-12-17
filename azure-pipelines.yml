@@ -1,17 +1,14 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
 
 trigger:
 - main
 
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: 'windows-2019'
 
 steps:
+- checkout: self
 - script: |
     echo Fetching Flyway Project
-    $ wget -qO- https://repo1.maven.org/maven2/org/flywaydb/flyway-commandline/7.3.1/flyway-commandline-7.3.1-linux-x64.tar.gz | tar xvz && sudo ln -s `pwd`/flyway-7.3.1/flyway /usr/local/bin
+    flyway -password=Snowflake@dmin  info
     dir
   displayName: 'Fetch Flyway Project'
